@@ -1,0 +1,17 @@
+@import "../colors";
+/* import the Bootstrap */
+@import "bootstrap";
+
+.btn-light {
+  @include button-variant(
+                  $buy-btn-color,
+                  darken($buy-btn-color, 7.5%),
+                  darken(#ffffff, 10%),
+                  lighten($buy-btn-color, 5%),
+                  lighten($buy-btn-color, 10%),
+                  darken($buy-btn-color, 30%));
+}
+
+.btn-outline-btn-light {
+  @include button-outline-variant($buy-btn-color, #cbbbbb, lighten($buy-btn-color, 5%), $buy-btn-color);
+}

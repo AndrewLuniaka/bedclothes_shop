@@ -1,0 +1,24 @@
+$logo-path: "../logo.svg";
+$logo-width: 200px;
+$logo-height: 84px;
+
+
+.logo {
+  display: inline-block;
+
+  width: $logo-width;
+  height: $logo-height;
+
+  background: url($logo-path) no-repeat center bottom;
+  background-size: contain;
+}
+
+a.logo, a.logo:hover, a.logo:link {
+  line-height: 0;
+  font-size: 0;
+  text-decoration: none;
+}
+
+a.menu-item {
+  font-size: 1.2rem;
+}
