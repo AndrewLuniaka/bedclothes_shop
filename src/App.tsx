@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Products, {ProductItem, ProductItemCollection} from "./pages/Products";
 import Header from "./pages/Header";
 import CartList from "./pages/CartList";
 import AppContext, {ContextData} from './Context';
@@ -13,35 +12,25 @@ import Contacts from "./pages/Contacts";
 import PaymentDelivery from "./pages/PaymentDelivery";
 import Feedback from "./pages/Feedback";
 import ConfirmOrder from "./pages/ConfirmOrder";
+import {ProductItem, ProductItemCollection, PurchaseItem, PurchaseItemList, PurchaseOrder} from "./shareData";
+import Products from "./pages/Products";
+import axios, {AxiosResponse} from "axios";
+import {v4} from "uuid";
+
 
 const itemsKey = "itemsData";
+const clientIdKey = "clientId";
 const purchasesKey = "purchasesData";
-
-export class PurchaseItemList {
-    purchasesInCart: PurchaseItem[];
-
-    constructor(purchasesInCart: PurchaseItem[]) {
-        this.purchasesInCart = purchasesInCart;
-    }
-}
-
-export class PurchaseItem {
-    id: number;
-    product: ProductItem;
-    count: number;
-    price: number;
-
-    constructor(id: number, product: ProductItem, count: number, price: number) {
-        this.id = id;
-        this.product = product;
-        this.count = count;
-        this.price = price;
-    }
-}
+const dataBasePath = "https://625eb8ff3b039517f1fb1530.mockapi.io/";
 
 function App() {
 
     const [isLoaded, setIsLoaded] = React.useState(false);
+    const [clientId, setClientId] = React.useState(() => {
+            const storedValue = localStorage.getItem(clientIdKey);
+            return storedValue !== null ? JSON.parse(storedValue) : "";
+        }
+    );
     const [items, setItems] = React.useState<ProductItemCollection>(() => {
             const storedValue = localStorage.getItem(itemsKey);
             return storedValue !== null ? JSON.parse(storedValue) : {} as ProductItemCollection
@@ -59,35 +48,21 @@ function App() {
         async function fetchData() {
             try {
                 setIsLoaded(false);
-                const productsJson = [
-                    {id: 0, title: "pillow1", price: 9.99},
-                    {id: 1, title: "pillow2", price: 9.99},
-                    {id: 2, title: "pillow3", price: 9.99},
-                    {id: 3, title: "pillow4", price: 9.99},
-                    {id: 4, title: "pillow5", price: 9.99},
-                    {id: 5, title: "pillow6", price: 9.99},
-                ];
 
-                const products: ProductItem[] = [
-                    new ProductItem(0, "bed_linen", "items_icons/bed_linen/linen_olive_1.jpg", "pillow1", "description", 9.99),
-                    new ProductItem(1, "bed_linen", "items_icons/bed_linen/linen_olive_1.jpg", "pillow2", "description", 9.99),
-                    new ProductItem(2, "bed_linen", "items_icons/bed_linen/linen_olive_1.jpg", "pillow3", "description", 9.99),
-                    new ProductItem(3, "blankets_pillows", "items_icons/bed_linen/linen_white_2.jpg", "pillow4", "description", 9.99),
-                    new ProductItem(4, "blankets_pillows", "items_icons/bed_linen/linen_white_2.jpg", "pillow5", "description", 9.99),
-                    new ProductItem(5, "blankets_pillows", "items_icons/bed_linen/linen_white_2.jpg", "pillow6", "description", 9.99),
-                    new ProductItem(6, "nightwear", "items_icons/bed_linen/linen_satine_3.jpg", "pillow1", "description", 9.99),
-                    new ProductItem(7, "nightwear", "items_icons/bed_linen/linen_satine_3.jpg", "pillow2", "description", 9.99),
-                    new ProductItem(8, "nightwear", "items_icons/bed_linen/linen_satine_3.jpg", "pillow3", "description", 9.99),
-                    new ProductItem(9, "towels", "items_icons/bed_linen/linen_satine_4.jpg", "pillow4", "description", 9.99),
-                    new ProductItem(10, "towels", "items_icons/bed_linen/linen_satine_4.jpg", "pillow5", "description", 9.99),
-                    new ProductItem(11, "towels", "items_icons/bed_linen/linen_satine_4.jpg", "pillow6", "description", 9.99)
-                ];
+                let products: AxiosResponse<ProductItem[]>;
+                [products] = await Promise.all([axios.get(dataBasePath + "items")]);
 
-                const productsCollection: ProductItemCollection = new ProductItemCollection(products);
+                const productsCollection: ProductItemCollection = new ProductItemCollection(products.data);
 
                 setItems(productsCollection);
                 localStorage.setItem(itemsKey, JSON.stringify(productsCollection));
+
                 setItemsInCart(purchaseList.purchasesInCart ? purchaseList.purchasesInCart.length : 0);
+
+                if (clientId === "") {
+                    let id = v4();
+                    localStorage.setItem(clientIdKey, JSON.stringify(id));
+                }
                 console.log("Data loaded successful!");
                 setIsLoaded(true);
             } catch (error) {
@@ -102,7 +77,7 @@ function App() {
     const addToCart = (item: PurchaseItem) => {
 
         let isInList = purchaseList.purchasesInCart ?
-            purchaseList.purchasesInCart.find((itemInCart) => itemInCart.id == item.id) :
+            purchaseList.purchasesInCart.find((itemInCart) => itemInCart.purchaseId == item.purchaseId) :
             null;
 
         let newItemsInCart = purchaseList.purchasesInCart ? purchaseList.purchasesInCart : [];
@@ -122,7 +97,7 @@ function App() {
     const deleteFromCart = (item: PurchaseItem) => {
 
         let isInList = purchaseList.purchasesInCart ?
-            purchaseList.purchasesInCart.find((itemInCart) => itemInCart.id == item.id) :
+            purchaseList.purchasesInCart.find((itemInCart) => itemInCart.purchaseId == item.purchaseId) :
             null;
 
         if (!isInList) {
@@ -142,9 +117,23 @@ function App() {
         setItemsInCart(newItemsInCart.length);
     }
 
+    const clearCart = () => {
+        let list = new PurchaseItemList([]);
+        localStorage.setItem(purchasesKey, JSON.stringify(list));
+        setPurchaseList(list);
+        setItemsInCart(0);
+    }
+
+    const confirmOrder = async (order: PurchaseOrder) => {
+
+        if (order == null) return;
+        order.clientId = clientId;
+        await axios.post(dataBasePath + "orders", order);
+    }
+
     function getProduct(id: number): ProductItem {
-        let result = items.products.find((product) => product.id == id);
-        console.log("getProduct");
+        let result = items.products.find((product) => product.productId == id);
+        console.log("getProduct: " + id);
         console.log(result);
         return result ? result : new ProductItem(0, "", "", "", "", 0);
     }
@@ -154,7 +143,9 @@ function App() {
         purchaseList,
         addToCart,
         deleteFromCart,
-        getProduct
+        clearCart,
+        getProduct,
+        confirmOrder
     };
 
     return (
@@ -183,3 +174,4 @@ function App() {
 }
 
 export default App;
+

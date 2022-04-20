@@ -1,15 +1,41 @@
-import React from 'react';
+import React, {FormEvent} from 'react';
 import './ConfirmOrder.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useNavigate} from "react-router-dom";
 import AppContext, {ContextData} from "../Context";
+import {PurchaseOrder} from "../shareData";
+import {v4} from "uuid";
 
 function ConfirmOrder() {
+
+    const [lastname, setLastname] = React.useState("");
+    const [firstname, setFirstname] = React.useState("");
+    const [phone, setPhone] = React.useState("");
+    const [email, setEmail] = React.useState("");
 
     const context = React.useContext(AppContext) as ContextData;
     const navigate = useNavigate();
 
-    if (context.itemsInCart <= 0) {
+    React.useEffect(() => {
+        if (context.itemsInCart <= 0) {
+            navigate("/", {replace: true});
+        }
+    }, []);
+
+
+    function submitOrder(event: FormEvent<HTMLFormElement>) {
+        console.log("Order confirmed");
+        event.preventDefault();
+        
+        if (lastname == "" ||
+            firstname == "" ||
+            phone == "" ||
+            email == "") {
+            return;
+        }
+        let order: PurchaseOrder = new PurchaseOrder("", v4(), lastname, firstname, phone, email, context.purchaseList.purchasesInCart);
+        context.confirmOrder(order);
+        context.clearCart();
         navigate("/", {replace: true});
     }
 
@@ -19,28 +45,36 @@ function ConfirmOrder() {
             <div className="row">
                 <div className="col-md-9">
                     <div className="container">
-                        <form>
+                        <form id="orderForm" onSubmit={(e) => submitOrder(e)} className="was-validated">
                             <div className="row">
                                 <div className="col-md-6 mb-3 mt-3">
                                     <label htmlFor="lastname" className="form-label text-muted"> Прізвище </label>
-                                    <input type="lastname" className="form-control" id="lastname" placeholder="Введіть прізвище" name="lastname"/>
+                                    <input type="lastname" className="form-control" id="lastname" onChange={(e) => setLastname(e.target.value)} placeholder="Введіть прізвище" name="lastname"/>
+                                    <div className="valid-feedback"></div>
+                                    <div className="invalid-feedback">Поле заповнене невірно!</div>
                                 </div>
 
                                 <div className="col-md-6 mb-3 mt-3">
                                     <label htmlFor="firstname" className="form-label text-muted"> Ім'я </label>
-                                    <input type="firstname" className="form-control" id="firstname" placeholder="Введіть Ім'я" name="firstname"/>
+                                    <input type="firstname" className="form-control" id="firstname" onChange={(e) => setFirstname(e.target.value)} placeholder="Введіть Ім'я" name="firstname"/>
+                                    <div className="valid-feedback"></div>
+                                    <div className="invalid-feedback">Поле заповнене невірно!</div>
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-md-6 mb-3 mt-3">
                                     <label htmlFor="phone" className="form-label text-muted"> Мобільний телефон </label>
-                                    <input type="phone" className="form-control" id="phone" placeholder="Введіть Мобільний телефон" name="phone"/>
+                                    <input type="phone" className="form-control" id="phone" onChange={(e) => setPhone(e.target.value)} placeholder="Введіть Мобільний телефон" name="phone"/>
+                                    <div className="valid-feedback"></div>
+                                    <div className="invalid-feedback">Поле заповнене невірно!</div>
                                 </div>
 
                                 <div className="col-md-6 mb-3 mt-3">
                                     <label htmlFor="email" className="form-label text-muted"> Електронна пошта </label>
-                                    <input type="email" className="form-control" id="email" placeholder="Введіть Електронна пошта" name="email"/>
+                                    <input type="email" className="form-control" id="email" onChange={(e) => setEmail(e.target.value)} placeholder="Введіть Електронна пошта" name="email"/>
+                                    <div className="valid-feedback"></div>
+                                    <div className="invalid-feedback">Поле заповнене невірно!</div>
                                 </div>
                             </div>
 
@@ -68,7 +102,7 @@ function ConfirmOrder() {
                                 <h3 className="card-text align-bottom">150 ₴</h3>
                             </div>
                             <div className="text-center">
-                                <button className="btn btn-success" type="submit">Замовлення підтверджую</button>
+                                <button className="btn btn-success" form="orderForm" type="submit">Замовлення підтверджую</button>
                             </div>
                         </div>
                     </div>

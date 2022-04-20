@@ -3,6 +3,7 @@ import './Products.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppContext, {ContextData} from '../Context';
 import {Link} from "react-router-dom";
+import {ProductItem, ProductItemCollection, ProductItemCollectionGrid} from "../shareData";
 
 function ProductCard(props: CardProps) {
 
@@ -10,7 +11,7 @@ function ProductCard(props: CardProps) {
 
     return (
         <div className="col-md-4">
-            <Link to={"/" + props.card.categoryId + "/" + props.card.id} className="flex-fill h-100 w-100 link-dark">
+            <Link to={"/" + props.card.categoryId + "/" + props.card.productId} className="flex-fill h-100 w-100 link-dark">
                 <div className="card">
                     <img src={props.card.imgUrl ? props.card.imgUrl : "defaultImg.jpg"} className="card-img-top"
                          alt="..."/>
@@ -24,39 +25,6 @@ function ProductCard(props: CardProps) {
     );
 }
 
-export class ProductItemCollection {
-    products: ProductItem[];
-
-    constructor(products: ProductItem[]) {
-        this.products = products;
-    }
-}
-
-class ProductItemCollectionGrid {
-    productsGrid: ProductItem[][];
-
-    constructor(productsGrid: ProductItem[][]) {
-        this.productsGrid = productsGrid;
-    }
-}
-
-export class ProductItem {
-    id: number;
-    categoryId: string;
-    imgUrl: string;
-    title: string;
-    description: string;
-    price: number;
-
-    constructor(id: number, categoryId: string, imgUrl: string, title: string, description: string, price: number) {
-        this.id = id;
-        this.categoryId = categoryId;
-        this.imgUrl = imgUrl;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-    }
-}
 
 type ProductProps = {
     category: string;

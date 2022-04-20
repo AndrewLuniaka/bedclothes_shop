@@ -1,9 +1,9 @@
 import React from 'react';
 import './CartList.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {PurchaseItem} from "../App";
 import AppContext, {ContextData} from "../Context";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {PurchaseItem} from "../shareData";
 
 type CardProps = {
     card: PurchaseItem;
@@ -36,6 +36,15 @@ function CartList() {
 
     const context = React.useContext(AppContext) as ContextData;
     const items = context.purchaseList;
+    const navigate = useNavigate();
+
+    const validateRedirect = () => {
+        if (context.itemsInCart <= 0) {
+            navigate("/", {replace: true});
+        } else {
+            navigate("/confirmOrder", {replace: true});
+        }
+    }
 
     return (
         <div className="cart-panel offcanvas offcanvas-end w-auto" id="cartKey">
@@ -60,9 +69,7 @@ function CartList() {
                                         items.purchasesInCart.reduce((sum, current) => sum + (current.price * current.count), 0)
                                             .toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2}) :
                                         0} ₴</h4>
-                                <Link to="/confirmOrder">
-                                    <button className="btn btn-success text-center" type="button" data-bs-dismiss="offcanvas">Підтвердити замовлення</button>
-                                </Link>
+                                <button className="btn btn-success text-center" type="button" data-bs-dismiss="offcanvas" onClick={() => validateRedirect()}>Підтвердити замовлення</button>
                             </div>
 
                         </div>

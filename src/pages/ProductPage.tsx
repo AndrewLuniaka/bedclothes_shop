@@ -3,8 +3,7 @@ import './ProductPage.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useParams} from "react-router-dom";
 import AppContext, {ContextData} from "../Context";
-import {ProductItem} from "./Products";
-import {PurchaseItem} from "../App";
+import {ProductItem, PurchaseItem} from "../shareData";
 
 function ProductPage() {
 
@@ -19,7 +18,7 @@ function ProductPage() {
         setLoading(true);
         let item = context.getProduct(Number(id));
         setProductItem(item);
-        let newPurchaseItem = new PurchaseItem(item.id, item, 1, item.price);
+        let newPurchaseItem = new PurchaseItem(item.productId, item, 1, item.price);
         setPurchaseItem(newPurchaseItem);
         console.log("Load product");
         setLoading(false);

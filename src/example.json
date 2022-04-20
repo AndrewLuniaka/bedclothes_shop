@@ -1,0 +1,34 @@
+[
+  {
+    "productId": "0",
+    "categoryId": "bed_linen",
+    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "1",
+    "categoryId": "blankets_pillows",
+    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "2",
+    "categoryId": "nightwear",
+    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "3",
+    "categoryId": "towels",
+    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  }
+]
