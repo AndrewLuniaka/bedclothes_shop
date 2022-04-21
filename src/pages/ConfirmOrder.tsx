@@ -26,7 +26,7 @@ function ConfirmOrder() {
     function submitOrder(event: FormEvent<HTMLFormElement>) {
         console.log("Order confirmed");
         event.preventDefault();
-        
+
         if (lastname == "" ||
             firstname == "" ||
             phone == "" ||
@@ -72,7 +72,7 @@ function ConfirmOrder() {
 
                                 <div className="col-md-6 mb-3 mt-3">
                                     <label htmlFor="email" className="form-label text-muted"> Електронна пошта </label>
-                                    <input type="email" className="form-control" id="email" onChange={(e) => setEmail(e.target.value)} placeholder="Введіть Електронна пошта" name="email"/>
+                                    <input type="email" className="form-control" id="email" onChange={(e) => setEmail(e.target.value)} placeholder="Введіть Електронна пошту" name="email"/>
                                     <div className="valid-feedback"></div>
                                     <div className="invalid-feedback">Поле заповнене невірно!</div>
                                 </div>

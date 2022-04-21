@@ -21,30 +21,34 @@ function Home() {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <img src="carousel/stripes.jpg" alt="Los Angeles" className="d-block"/>
+                            <div className="fade-bg card-img-overlay"></div>
                             <div className="carousel-caption">
-                                <h3>Los Angeles</h3>
-                                <p>We had such a great time in LA!</p>
+                                <h3>Зробіть ваш час сну приємним з нашою новою колекцією</h3>
+                                <p></p>
                             </div>
                         </div>
                         <div className="carousel-item">
                             <img src="carousel/bedding.jpg" alt="Chicago" className="d-block"/>
+                            <div className="fade-bg card-img-overlay"></div>
                             <div className="carousel-caption">
-                                <h3>Chicago</h3>
-                                <p>Thank you, Chicago!</p>
+                                <h3>Затишні ковдри, та зручні подушки</h3>
+                                <p></p>
                             </div>
                         </div>
                         <div className="carousel-item">
-                            <img src="carousel/linen.jpg" alt="New York" className="d-block"/>
+                            <img src="carousel/linen.jpg" alt="Одягни своє ліжко в один з наших неперевершенних кольорів" className="d-block"/>
+                            <div className="fade-bg card-img-overlay"></div>
                             <div className="carousel-caption">
-                                <h3>New York</h3>
-                                <p>We love the Big Apple!</p>
+                                <h3>Одягни своє ліжко в один з наших неперевершенних кольорів</h3>
+                                <p></p>
                             </div>
                         </div>
                         <div className="carousel-item">
-                            <img src="carousel/nightwear.jpg" alt="New York" className="d-block"/>
+                            <img src="carousel/nightwear.jpg" alt="Одягни своє ліжко в один з наших неперевершенних кольорів" className="d-block"/>
+                            <div className="fade-bg card-img-overlay"></div>
                             <div className="carousel-caption">
-                                <h3>New York</h3>
-                                <p>We love the Big Apple!</p>
+                                <h3>Зручний та стильний дояг для приемного сну</h3>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -67,30 +71,24 @@ function Home() {
                                 <img src="cat_cards/cat_linen.jpg" className="card-img img-fluid" alt="..."/>
                                 <div
                                     className="card-img-overlay text-center d-flex flex-column justify-content-center mask">
-                                    <h5 className="card-title">Card title</h5>
+                                    <h5 className="card-title">Ми використовуємо якісну та красиву лляну пряжу, щоб забезпечити вам чудовий комфорт за найкращою ціною</h5>
 
-                                    <p className="card-text">This is a wider card with supporting text below as a
-                                        natural lead-in to additional content. This content is a little bit
-                                        longer.</p>
+                                    <p className="card-text"></p>
 
-                                    <Link to="/bed_linen"
-                                          className="mh-100 link-light bg-dark stretched-link">Перейти</Link>
+                                    <h4><Link to="/bed_linen" className="mh-100 link-light bg-dark stretched-link mx-xxl-auto me-xxl-auto px-5 pe-5">Перейти</Link></h4>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="card text-white text-center">
-                                <img src="cat_cards/cat_linen.jpg" className="card-img img-fluid" alt="..."/>
+                                <img src="cat_cards/cat_bedding.jpg" className="card-img img-fluid" alt="..."/>
                                 <div
                                     className="card-img-overlay text-center d-flex flex-column justify-content-center mask">
-                                    <h5 className="card-title">Card title</h5>
+                                    <h5 className="card-title">Відпочиньте та занурьтесь в наші свжі наповнені подушки та ковдри, все що вам потрібно для найкращіх ночей</h5>
 
-                                    <p className="card-text">This is a wider card with supporting text below as a
-                                        natural lead-in to additional content. This content is a little bit
-                                        longer.</p>
+                                    <p className="card-text"></p>
 
-                                    <Link to="/blankets_pillows"
-                                          className="mh-100 link-light bg-dark stretched-link">Перейти</Link>
+                                    <h4><Link to="/blankets_pillows" className="mh-100 link-light bg-dark stretched-link mx-xxl-auto me-xxl-auto px-5 pe-5">Перейти</Link></h4>
                                 </div>
                             </div>
                         </div>
@@ -99,33 +97,27 @@ function Home() {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="card text-white text-center">
-                                <img src="cat_cards/cat_linen.jpg" className="card-img img-fluid" alt="..."/>
+                                <img src="cat_cards/cat_nightwear.jpg" className="card-img img-fluid" alt="..."/>
                                 <div
                                     className="card-img-overlay text-center d-flex flex-column justify-content-center mask">
-                                    <h5 className="card-title">Card title</h5>
+                                    <h5 className="card-title">Ми створили цю колекцію красивих і зручних нічних речей і одягу для відпочинку саме для вас. </h5>
 
-                                    <p className="card-text">This is a wider card with supporting text below as a
-                                        natural lead-in to additional content. This content is a little bit
-                                        longer.</p>
+                                    <p className="card-text"></p>
 
-                                    <Link to="/nightwear"
-                                          className="mh-100 link-light bg-dark stretched-link">Перейти</Link>
+                                    <h4><Link to="/nightwear" className="mh-100 link-light bg-dark stretched-link mx-xxl-auto me-xxl-auto px-5 pe-5">Перейти</Link></h4>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="card text-white text-center">
-                                <img src="cat_cards/cat_linen.jpg" className="card-img img-fluid" alt="..."/>
+                                <img src="cat_cards/cat_towels.jpg" className="card-img img-fluid" alt="..."/>
                                 <div
                                     className="card-img-overlay text-center d-flex flex-column justify-content-center mask">
-                                    <h5 className="card-title">Card title</h5>
+                                    <h5 className="card-title">Чудові бавовняні рушники різних кольорів доповнять вашу коллекцію постільної білизни</h5>
 
-                                    <p className="card-text">This is a wider card with supporting text below as a
-                                        natural lead-in to additional content. This content is a little bit
-                                        longer.</p>
+                                    <p className="card-text"></p>
 
-                                    <Link to="/towels"
-                                          className="mh-100 link-light bg-dark stretched-link">Перейти</Link>
+                                    <h4><Link to="/towels" className="mh-100 link-light bg-dark stretched-link mx-xxl-auto me-xxl-auto px-5 pe-5">Перейти</Link></h4>
                                 </div>
                             </div>
                         </div>

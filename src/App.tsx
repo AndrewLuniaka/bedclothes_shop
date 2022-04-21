@@ -16,6 +16,7 @@ import {ProductItem, ProductItemCollection, PurchaseItem, PurchaseItemList, Purc
 import Products from "./pages/Products";
 import axios, {AxiosResponse} from "axios";
 import {v4} from "uuid";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 
 const itemsKey = "itemsData";
@@ -163,6 +164,7 @@ function App() {
                         <Route path="/:productId/:id" element={<ProductPage/>}/>
                         <Route path="/payment_delivery" element={<PaymentDelivery/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
+                        <Route path="/privacy_policy" element={<PrivacyPolicy/>}/>
                         <Route path="/feedback" element={<Feedback/>}/>
                         <Route path="/confirmOrder" element={<ConfirmOrder/>}/>
                     </Routes>

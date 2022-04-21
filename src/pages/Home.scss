@@ -14,6 +14,7 @@ img.Home {
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.75);
+
     a {
       opacity: 1;
     }
@@ -22,4 +23,8 @@ img.Home {
 
 .mask-top {
   pointer-events: none;
+}
+
+.fade-bg {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, rgb(0, 0, 0) 100%);
 }

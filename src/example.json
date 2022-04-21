@@ -2,31 +2,191 @@
   {
     "productId": "0",
     "categoryId": "bed_linen",
-    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "imgUrl": "items_icons/bed_linen/COASTAL_STRIPE_NAVY_BED_LINEN.jpg",
     "title": "pillow1",
     "description": "description",
     "price": "9.99"
   },
   {
     "productId": "1",
-    "categoryId": "blankets_pillows",
-    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "categoryId": "bed_linen",
+    "imgUrl": "items_icons/bed_linen/HENRY_BRUSHED_COTTON_MAIN.jpg",
     "title": "pillow1",
     "description": "description",
     "price": "9.99"
   },
   {
     "productId": "2",
-    "categoryId": "nightwear",
-    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "categoryId": "bed_linen",
+    "imgUrl": "items_icons/bed_linen/LINEN_POWDER_BLUE_BED_LINEN_MAIN.jpg",
     "title": "pillow1",
     "description": "description",
     "price": "9.99"
   },
   {
     "productId": "3",
+    "categoryId": "bed_linen",
+    "imgUrl": "items_icons/bed_linen/LUXURY_WHITE_STRIPE_BED_LINEN.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "4",
+    "categoryId": "bed_linen",
+    "imgUrl": "items_icons/bed_linen/PINECONES_MIDNIGHT_BLUE_BED_LINEN_2.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "5",
+    "categoryId": "bed_linen",
+    "imgUrl": "items_icons/bed_linen/SUPER_SOFT_SATEEN_DUSTY_PINK_MAIN_N.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "6",
+    "categoryId": "blankets_pillows",
+    "imgUrl": "items_icons/bedding/BRETTON_STRIPE_GREY_CUSHION.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "7",
+    "categoryId": "blankets_pillows",
+    "imgUrl": "items_icons/bedding/FINN_THROW.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "8",
+    "categoryId": "blankets_pillows",
+    "imgUrl": "items_icons/bedding/PORTO_CUSHION_COVER2.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "9",
+    "categoryId": "blankets_pillows",
+    "imgUrl": "items_icons/bedding/SONNY_THROW.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "10",
+    "categoryId": "blankets_pillows",
+    "imgUrl": "items_icons/bedding/TEAL_COTTON_KNITTED_THROW.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "11",
+    "categoryId": "blankets_pillows",
+    "imgUrl": "items_icons/bedding/WINTER_WHITE_MARL_KNITTED_THROW.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "12",
+    "categoryId": "nightwear",
+    "imgUrl": "items_icons/nightwear/flint_grey_nightwear.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "13",
+    "categoryId": "nightwear",
+    "imgUrl": "items_icons/nightwear/grey_nightwear.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "14",
+    "categoryId": "nightwear",
+    "imgUrl": "items_icons/nightwear/jo_charcoal_nightwear.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "15",
+    "categoryId": "nightwear",
+    "imgUrl": "items_icons/nightwear/sateen_nightwear.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "16",
+    "categoryId": "nightwear",
+    "imgUrl": "items_icons/nightwear/white_long_nightwear.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "17",
+    "categoryId": "nightwear",
+    "imgUrl": "items_icons/nightwear/white_short_nightwear.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "18",
     "categoryId": "towels",
-    "imgUrl": "items_icons/bed_linen/linen_olive_1.jpg",
+    "imgUrl": "items_icons/towels/BETH_CUSHION_COVER.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "19",
+    "categoryId": "towels",
+    "imgUrl": "items_icons/towels/DUCK_EGG_COTTON_TOWELS.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "20",
+    "categoryId": "towels",
+    "imgUrl": "items_icons/towels/LIGHT_GREY_STRIPED_COTTON_TOWELS.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "21",
+    "categoryId": "towels",
+    "imgUrl": "items_icons/towels/SAGE_LUXURY_TOWELS.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "22",
+    "categoryId": "towels",
+    "imgUrl": "items_icons/towels/WAFFLE_COTTON_TOWEL_GRAPHITE_GREY.jpg",
+    "title": "pillow1",
+    "description": "description",
+    "price": "9.99"
+  },
+  {
+    "productId": "23",
+    "categoryId": "towels",
+    "imgUrl": "items_icons/towels/WAFFLE_COTTON_TOWEL_VINTAGE_ROSE.jpg",
     "title": "pillow1",
     "description": "description",
     "price": "9.99"

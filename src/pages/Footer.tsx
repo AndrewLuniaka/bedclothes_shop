@@ -30,7 +30,7 @@ function Footer() {
                                 <Link to="/contacts" className="nav-link p-0 link-dark">Співпраця</Link>
                             </li>
                             <li className="nav-item mb-2">
-                                <Link to="/contacts" className="nav-link p-0 link-dark">Умови використання</Link>
+                                <Link to="/privacy_policy" className="nav-link p-0 link-dark">Умови використання</Link>
                             </li>
                             <li className="nav-item mb-2">
                                 <Link to="/feedback" className="nav-link p-0 link-dark">Зворотній зв'язок</Link>
@@ -39,12 +39,10 @@ function Footer() {
                     </div>
 
                     <div className="col-4">
-                        <form>
-                            <h5>Контакти та Адреса</h5>
-                            <p>laplume@gmail.com</p>
-                            <p>+38 093 44 10 777</p>
-                            <p>м. Одеса, вул. М. Арнаутська, б. 26</p>
-                        </form>
+                        <h5>Контакти та Адреса</h5>
+                        <p>laplume@gmail.com</p>
+                        <p>+38 093 44 10 777</p>
+                        <p>м. Одеса, вул. М. Арнаутська, б. 26</p>
                     </div>
                 </div>
 
