@@ -15,6 +15,7 @@ function ConfirmOrder() {
 
     const context = React.useContext(AppContext) as ContextData;
     const navigate = useNavigate();
+    const items = context.purchaseList;
 
     React.useEffect(() => {
         if (context.itemsInCart <= 0) {
@@ -22,6 +23,9 @@ function ConfirmOrder() {
         }
     }, []);
 
+    function getTotalPrice(): number {
+        return items.purchasesInCart ? items.purchasesInCart.reduce((sum, current) => sum + (current.price * current.count), 0) : 0;
+    }
 
     function submitOrder(event: FormEvent<HTMLFormElement>) {
         console.log("Order confirmed");
@@ -89,17 +93,17 @@ function ConfirmOrder() {
 
                             <div className="d-flex justify-content-between">
                                 <p className="card-text text-muted">2 товари на суму</p>
-                                <p className="card-text">918 ₴</p>
+                                <p className="card-text">{getTotalPrice().toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2})} ₴</p>
                             </div>
 
                             <div className="d-flex justify-content-between">
                                 <p className="card-text text-muted">Вартість доставки</p>
-                                <p className="card-text">150 ₴</p>
+                                <p className="card-text">51 ₴</p>
                             </div>
 
                             <div className="d-flex mt-lg-4  mb-lg-4 justify-content-between">
                                 <p className="card-text text-muted text-center mt-1 mb-0">До сплати</p>
-                                <h3 className="card-text align-bottom">150 ₴</h3>
+                                <h3 className="card-text align-bottom">{(getTotalPrice() + 51).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2})} ₴</h3>
                             </div>
                             <div className="text-center">
                                 <button className="btn btn-success" form="orderForm" type="submit">Замовлення підтверджую</button>
